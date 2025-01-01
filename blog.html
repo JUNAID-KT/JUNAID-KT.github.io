@@ -20,9 +20,8 @@
             padding: 0;
             background-color: #f9f9f9;
         }
-
-        
     </style>
+
 </head>
 
 <body>
@@ -57,10 +56,10 @@
             </div>
         </header>
 
-        <!-- Dynamic content area -->
-        <div id="content"></div>
+       
     </div>
-
+ <!-- Dynamic content area -->
+ <div id="content"></div>
     <footer class="footer">
         <div class="contact-info">
             <div class="contact-item">
@@ -113,19 +112,19 @@
             })
             .catch(err => console.error('Error fetching data:', err));
     </script> -->
-   
+
     <script>
         fetch('https://script.google.com/macros/s/AKfycbxJuE51qW2Hk7P1iwhVGyMjdueLzKVsIqs1qEU67q2TWN33Y5rfw1azypFyqts7N_Jy4Q/exec')
             .then(response => response.json())
             .then(data => {
                 // Reverse the data array
                 const reversedData = data.reverse();
-    
+
                 const container = document.getElementById('content');
                 reversedData.forEach(item => {
                     const card = document.createElement('div');
                     card.className = 'post-card';
-    
+
                     // Format the date
                     const rawDate = new Date(item.date); // Assuming 'date' field is in ISO format
                     const formattedDate = rawDate.toLocaleDateString('en-GB', {
@@ -133,7 +132,7 @@
                         month: 'long',
                         year: 'numeric'
                     });
-    
+
                     card.innerHTML = `
                         <img class="post-image" src="${item.imageUrl}" alt="Post Image">
                         <div class="post-content">
@@ -148,8 +147,10 @@
                 });
             })
             .catch(err => console.error('Error fetching data:', err));
+
+      
     </script>
-    
+
 </body>
 
 </html>
