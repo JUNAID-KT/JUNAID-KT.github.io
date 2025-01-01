@@ -829,18 +829,18 @@ h3 {
 /* Web View (min-width: 768px) */
 @media (min-width: 768px) {
   #content {
-    flex-direction: row;
-    /* Arrange cards horizontally */
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* Stack cards vertically in web view as well */
+    align-items: center;
     justify-content: center;
   }
 
   .post-card {
-    width: 45%;
-    /* Each card takes up 45% of the container width, leaving space for two cards per row */
+    width: 100%;
+    /* Full width on web view */
     max-width: 600px;
     /* Max width for cards */
-    margin: 10px;
+    margin: 10px 0;
     /* Margin between cards */
     display: flex;
     flex-direction: column;
