@@ -407,8 +407,8 @@ h3 {
 }
 
 .about-title {
- color: #000000;
- text-decoration: underline;
+  color: #000000;
+  text-decoration: underline;
 }
 
 .manager-author {
@@ -439,10 +439,10 @@ h3 {
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  object-fit:inherit;
+  object-fit: inherit;
   margin-bottom: 20px;
   background-color: white;
-  border: 5px solid  rgba(30, 42, 68, 0.93);
+  border: 5px solid rgba(30, 42, 68, 0.93);
 }
 
 .intro {
@@ -753,5 +753,189 @@ h3 {
     white-space: nowrap;
     color: #D3D3D3;
     font-size: calc(13px + 0.390625vw);
+  }
+}
+
+/* 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+} */
+/*
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px; 
+  align-items: flex-start; 
+
+.post-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px; 
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column; 
+}
+
+.post-card:hover {
+  transform: scale(1.05);
+}
+
+.post-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.post-description {
+  font-size: 1em;
+  color: #333;
+  line-height: 1.5;
+}
+*/
+#content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Space between cards */
+  margin-top: 20px;
+  margin-bottom: 40px;
+  /* Prevents overlap with footer */
+  padding: 10px;
+  align-items: center;
+  /* Center cards horizontally */
+}
+
+/* Web View (min-width: 768px) */
+@media (min-width: 768px) {
+  #content {
+    flex-direction: column;
+    /* Stack cards vertically in web view as well */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .post-card {
+    width: 100%;
+    /* Full width on web view */
+    max-width: 600px;
+    /* Max width for cards */
+    margin: 10px 0;
+    /* Margin between cards */
+    display: flex;
+    flex-direction: column;
+    /* Stack content inside each card */
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd; /* Add faint bottom line for separation */
+  }
+
+  .post-image {
+    width: 100%;
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain; 
+    /* Ensure the image fits within the container without cropping or stretching */
+    margin-left: 10px;
+    /* Adds space to the left and right of the image */
+    margin-right: 10px;
+    /* Adds space to the left and right of the image */
+  }
+
+  .post-content {
+    padding: 15px;
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+  }
+
+  .post-description {
+    font-size: 1em;
+    color: #000000;
+    line-height: 1.5;
+    text-align: justify;
+    /* Justify the text */
+    text-align-last: left;
+    /* Align the last line to the left */
+    word-spacing: 0.5px;
+    /* Adjust space between words to reduce extra gaps */
+  }
+}
+
+/* Mobile View (max-width: 768px) */
+@media (max-width: 768px) {
+  #content {
+    flex-direction: column;
+    /* Stack cards vertically */
+    align-items: center;
+    /* Center the cards horizontally */
+  }
+
+  .post-card {
+    width: 100%;
+    /* Full width on mobile */
+    max-width: 500px;
+    /* Limit the maximum width */
+    margin: 10px 0;
+    /* Add margin around each card */
+    border-bottom: 1px solid #ddd; /* Add faint bottom line for separation */
+  }
+
+  .post-image {
+    width: 100%;
+    height: 200px;
+    /* Set a fixed height for the images on mobile */
+    object-fit: contain;
+    /* Ensure the image fits within the container without cropping or stretching */
+  }
+
+  .post-content {
+    padding: 15px;
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+  }
+
+  .post-description {
+    font-size: 0.75em;
+    color: #000000;
+    line-height: 1.5;
+    text-align: justify;
+    /* Justify the text */
+    text-align-last: left;
+    /* Align the last line to the left */
+    word-spacing: 0.5px;
+    /* Adjust space between words to reduce extra gaps */
   }
 }
