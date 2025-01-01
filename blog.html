@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="../css/style.css?v=11">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="../js/script.js?v=11"></script>
+    <title>Build Rock</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="tenant">
+                <div class="logo">
+                    <img src="../img/logo.jpg" alt="Logo">
+                </div>
+                <div id="company-name">
+                    <h1>BUILD ROCK</h1>
+                    <span>Quality Builders</span>
+                </div>
+            </div>
+
+            <div class="topnav" id="myTopnav">
+                <a href="index.html" class="fas fa-home"></a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Services
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Mason</a>
+                        <a href="#">MEP</a>
+                    </div>
+                </div>
+                <a href="" class="active">Blog</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon"
+                    onclick="responsiveMenu()">&#9776;</a>
+            </div>
+        </header>
+
+        <!-- Dynamic content area -->
+        <div id="content"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="">Kooriyad, Malappuram</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-mobile-alt"></i>
+                <a href="tel:9037838308">9037838308</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:buildrockbasheer@gmail.com">buildrockbasheer@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="footer-content">
+            <p>&copy; 2023 Build Rock. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float">
+        <a href="https://wa.me/9037838308" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Script to fetch and display content from Google Sheets -->
+    <!-- <script>
+        
+        fetch('https://script.google.com/macros/s/AKfycbxJuE51qW2Hk7P1iwhVGyMjdueLzKVsIqs1qEU67q2TWN33Y5rfw1azypFyqts7N_Jy4Q/exec')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('content');
+                data.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'post-card';
+                    card.innerHTML = `
+                        <img class="post-image" src="${item.imageUrl}" alt="Post Image">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span>${item.date}</span>
+                                <span>${item.place}</span>
+                            </div>
+                            <p class="post-description">${item.description}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(err => console.error('Error fetching data:', err));
+    </script> -->
+   
+    <script>
+        fetch('https://script.google.com/macros/s/AKfycbxJuE51qW2Hk7P1iwhVGyMjdueLzKVsIqs1qEU67q2TWN33Y5rfw1azypFyqts7N_Jy4Q/exec')
+            .then(response => response.json())
+            .then(data => {
+                // Reverse the data array
+                const reversedData = data.reverse();
+    
+                const container = document.getElementById('content');
+                reversedData.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'post-card';
+    
+                    // Format the date
+                    const rawDate = new Date(item.date); // Assuming 'date' field is in ISO format
+                    const formattedDate = rawDate.toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                    });
+    
+                    card.innerHTML = `
+                        <img class="post-image" src="${item.imageUrl}" alt="Post Image">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span>${formattedDate}</span> <!-- Display formatted date -->
+                                <span>${item.place}</span>
+                            </div>
+                            <p class="post-description">${item.description}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(err => console.error('Error fetching data:', err));
+    </script>
+    
+</body>
+
+</html>
